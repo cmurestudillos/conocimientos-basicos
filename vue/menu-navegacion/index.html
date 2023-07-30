@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de menu de navegacion simple - Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="main">
+    <!-- El menú de navegación obtendrá el valor de la variable "activa" como una clase. -->
+    <!-- Para detener el salto de la página cuando se hace clic en un enlace
+      Usamos el modificador "prevent" (abreviatura de preventDefault). -->
+  <nav v-bind:class="active" v-on:click.prevent>
+    <!-- Cuando se hace clic en un enlace del menú, llamamos al método makeActive,
+      definido en la instancia de JavaScript Vue. Cambiará el valor de "activo". -->
+
+    <a href="#" class="home" v-on:click="makeActive('Inicio')">Inicio</a>
+    <a href="#" class="projects" v-on:click="makeActive('Proyectos')">Proyectos</a>
+    <a href="#" class="services" v-on:click="makeActive('Servicios')">Servicios</a>
+    <a href="#" class="contact" v-on:click="makeActive('Contacto')">Contacto</a>
+  </nav>
+  <!-- La expresión se reemplazará con el valor de "activo".
+    Se actualizará automáticamente para reflejar cualquier cambio. -->
+  <p>Has seleccionado <b>{{active}}</b></p>
+</div>
+
+<script>
+  // Crear una nueva instancia de Vue y pasar un objeto de opciones.
+  var demo = new Vue({
+    // Un elemento DOM para montar nuestro modelo de vista.
+    el: '#main',
+
+    // Este es el modelo.
+    // Definir propiedades y darles valores iniciales.
+    data: {
+      active: 'home'
+    },
+
+    // Funciones que estaremos usando.
+    methods: {
+      makeActive: function(item){
+        // Cuando se cambia un modelo, la vista se actualizará automáticamente.
+        this.active = item;
+      }
+   }
+  });
+</script>
+<style lang="scss">
+  *{
+          margin:0;
+          padding:0;
+  }
+
+  body{
+          font:15px/1.3 'Open Sans', sans-serif;
+          color: #5e5b64;
+          text-align:center;
+  }
+
+  a, a:visited {
+          outline:none;
+          color:#389dc1;
+  }
+
+  a:hover{
+          text-decoration:none;
+  }
+
+  section, footer, header, aside, nav{
+          display: block;
+  }
+
+  /*-------------------------
+           menu
+  --------------------------*/
+
+  nav{
+          display:inline-block;
+          margin:60px auto 45px;
+          background-color:#5597b4;
+          box-shadow:0 1px 1px #ccc;
+          border-radius:2px;
+  }
+
+  nav a{
+          display:inline-block;
+          padding: 18px 30px;
+          color:#fff !important;
+          font-weight:bold;
+          font-size:16px;
+          text-decoration:none !important;
+          line-height:1;
+          text-transform: uppercase;
+          background-color:transparent;
+
+          -webkit-transition:background-color 0.25s;
+          -moz-transition:background-color 0.25s;
+          transition:background-color 0.25s;
+  }
+
+  nav a:first-child{
+          border-radius:2px 0 0 2px;
+  }
+
+  nav a:last-child{
+          border-radius:0 2px 2px 0;
+  }
+
+  nav.home .home,
+  nav.projects .projects,
+  nav.services .services,
+  nav.contact .contact{
+          background-color:#e35885;
+  }
+
+  p{
+          font-size:22px;
+          font-weight:bold;
+          color:#7d9098;
+  }
+
+  p b{
+          color:#ffffff;
+          display:inline-block;
+          padding:5px 10px;
+          background-color:#c4d7e0;
+          border-radius:2px;
+          text-transform:uppercase;
+          font-size:18px;
+  }    
+</style>
+</body>
+</html>

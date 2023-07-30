@@ -1,0 +1,22 @@
+var usuario = {
+  "id": "1",
+  "username": "carlosmur",
+  "password": "admin",
+  "data": {
+  "name": "Carlos Mur",
+  "email": "cmurestudillos@gmail.com",
+  "city": "Huesca",
+  "country": "ES"
+  },
+  "preferences": {
+    "contact": {
+    "email": true,
+    "notify": true
+  },
+    "interests": [
+    "javascript",
+    "vue",
+    "angular"
+    ]
+  }
+};

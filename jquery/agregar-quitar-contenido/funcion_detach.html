@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Funcion detach()</title>
+
+<style>
+.box {
+  background: orange;
+  color: white;
+  padding: 10px;
+}
+p {
+  border: 1px dotted white;
+  padding: 5px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( ".box p" ).click( function() {
+      $( this ).detach();
+    });
+  });
+</script>
+
+<p>Pulsar para a despegar.</p>
+
+<div class="box">
+  <p>Contenido principal</p>
+  <p>Mas contenido</p>
+  <p>Mucho mas contenido</p>
+</div>

@@ -1,0 +1,27 @@
+//Definida la clase
+function Inventario (nombre) {
+  this.nombre = nombre;
+  this.articulos = [];
+  this.add = function (nombre, cantidad) {
+  this.articulos[nombre] = cantidad;
+}
+
+this.borrar = function (nombre) {
+  delete this.articulos[nombre];
+}
+this.cantidad = function (nombre) {
+  return this.articulos[nombre];
+}
+this.getNombre = function () {
+return this.nombre;
+}
+
+//invocamos los metodos
+var libros = new Inventario("Libros");
+libros.add("AngularJS", 3);
+libros.add("JavaScript", 10);
+libros.add("NodeJS", 5);
+libros.cantidad("AngularJS"); // 3
+libros.cantidad("JavaScript"); // 10
+libros.borrar("JavaScript");
+libros.cantidad("JavaScript"); // undefined

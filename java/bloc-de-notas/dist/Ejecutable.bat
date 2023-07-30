@@ -1,0 +1,1 @@
+START javaw -jar R12_Bloc_de_Notas.jar

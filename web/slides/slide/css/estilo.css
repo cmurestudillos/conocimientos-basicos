@@ -1,0 +1,91 @@
+/*  CAPAS CONTENEDORAS  */
+
+#izquierda  {
+  width: 170px;
+  float: left;
+  }
+  
+.derecha {
+  width: 750px;
+  float: left;
+  }
+  
+
+
+/*  ELEMENTOS DEL MENU LATERAL  */
+
+#menu {
+  padding:0; 
+  margin:0 auto; 
+  list-style-type:none; 
+  width:160px; 
+  height:312px; 
+  }
+#menu li a {
+  height:30px;
+  width:160px; 
+  float:left; 
+  border-bottom:2px solid #fff; 
+  overflow: hidden;
+  }
+#menu li a img {
+  border:0;
+  }
+#menu li a:hover {
+  height:120px;
+  }
+
+  
+/*  ELEMENTOS DEL MENU SUPERIOR */
+  
+#menu2 {
+  padding:0; 
+  margin:0 auto; 
+  list-style-type:none; 
+  height:120px; 
+  width:354px; 
+  }
+#menu2 li a {
+  width:30px;
+  height:120px; 
+  float:left; 
+  border-right:2px solid #fff; 
+  overflow: hidden;
+  }
+#menu2 li a img {
+  border:0;
+  }
+#menu2 li a:hover {
+  background:#eee; 
+  width:160px;
+  }
+  
+
+/*  ELEMENTOS DE LA GALERIA DE IMAGENES */
+  
+#galeria {
+  padding:0; 
+  margin:40px auto 0 auto; 
+  list-style-type:none; 
+  height:300px; 
+  width:774px; 
+  border:1px solid #888; 
+  }
+#galeria li {
+  width:60px;
+  height:300px; 
+  float:left; 
+  border-left:2px solid #000; 
+  }
+#galeria li img {
+  height:300px; 
+  width:60px; 
+  border:0;
+  }
+#galeria li:hover {
+  background:#eee; 
+  width:400px;
+  }
+#galeria li:hover img {
+  width:400px;
+  }

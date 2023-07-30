@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Start/Stop</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "#start" ).click( function() {
+      $( "#animation" ).animate({
+        fontSize: "+=1.5em",
+        letterSpacing: "+=0.3em"
+      }, 4000 );   
+    });
+    $("#stop").click(function(){
+      $("#animation").stop();
+    });    
+  });
+</script>
+
+<button id="start">Start Animación</button>
+<button id="stop">Stop Animación!</button>
+
+<div id="animation">Hola Mundo</div>

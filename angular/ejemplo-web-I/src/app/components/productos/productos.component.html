@@ -1,0 +1,10 @@
+<h1>Productos <small>de DIA</small></h1>
+<hr>
+
+
+<div class="card-columns">
+
+  <app-articulo-tarjeta (articuloSeleccionado)="verArticulo( $event )" [articulo]="articulo" [index]="i"  *ngFor="let articulo of productos; let i = index"></app-articulo-tarjeta>
+
+
+</div>

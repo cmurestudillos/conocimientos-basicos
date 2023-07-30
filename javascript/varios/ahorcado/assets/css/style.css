@@ -1,0 +1,41 @@
+body {
+    padding: 50px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+section {
+    float: left;
+}
+
+#word {
+    text-align: center;
+    padding-bottom: 20px;
+    letter-spacing: 6px;
+}
+
+.letter {
+    cursor: pointer;
+}
+
+.letter-correct {
+    color: green;
+}
+
+.letter-incorrect{
+    color: red;
+}
+
+picture {
+    padding-left: 50px;
+}
+
+footer {
+    padding-top: 50px;
+    padding-left: 250px;
+}
+
+

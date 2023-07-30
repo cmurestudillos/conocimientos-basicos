@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>Funcion val()</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "input" ).keyup( function() {
+      $( "p" ).text( $("input").val() );
+    });
+  });
+</script>
+
+<input placeholder="Introduce tu nombre">
+<p></p>

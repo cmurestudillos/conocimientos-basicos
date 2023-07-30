@@ -1,0 +1,125 @@
+<h4>Formulario <small>Introduce un articulo</small></h4>
+<hr>
+<!-- novalidate quita las validaciones de HTML5-->
+<!--[(ngModel)] ambos sentidos, (ngModel) HTML==>Typescript, [ngModel] Typescript ==> HTML-->
+<form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
+<!--Modificar clases y estilos a traves de Angular [ngClass]-->
+  <div>
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Id. Articulo</label>
+        <div class="col-8">
+          <input class="form-control"
+                 type="text"
+                 placeholder="Id"
+                 name="id"
+                 [(ngModel)]="artik.id"
+                 required
+                 #id="ngModel">
+                <div *ngIf="id.errors?.required">
+             Este campo es obligatorio.
+           </div>
+        </div>
+      </div>
+
+    <div class="form-group row" [ngClass]="{ 'has-danger': (nombre.errors?.minlength || nombre.errors?.required)&& nombre.touched }">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre del Articulo"
+               name="nombre"
+               [(ngModel)]="artik.nombre"
+               minlength="3"
+               required
+               #nombre="ngModel">
+               <!--Validadores (revisar en el console del navegador)-->
+          <div *ngIf="nombre.errors?.required"
+                class="form-control-feedback">
+            Este campo es obligatorio.
+          </div>
+          <div  *ngIf="nombre.errors?.minlength"
+                class="form-control-feedback">
+            Por lo menos {{ nombre.errors.minlength.requiredLength }} caracteres.
+          </div>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Bio:</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Introducir Bio."
+               name="bio"
+               [(ngModel)]="artik.bio"
+               required
+               #bio="ngModel">
+
+         <div *ngIf="bio.errors?.required">
+           Este campo es obligatorio.
+         </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Imagen</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="text"
+             placeholder="assets/img/nombreImg.png"
+             name="img"
+             [(ngModel)]="artik.img"
+             #img="ngModel">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Precio</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="text"
+             placeholder="Precio en €"
+             name="precio"
+             [(ngModel)]="artik.precio"
+             #precio="ngModel">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Alergeno</label>
+    <div class="col-md-8">
+      <select [(ngModel)]="artik.alergeno"
+              class="form-control"
+              name="alergeno">
+         <option value="">Seleccione un alergeno</option>
+         <option *ngFor="let alergeno of alergenos"
+              [value]="alergeno.codigo"> {{ alergeno.nombre }} </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button [disabled]="!forma.valid"
+              type="submit"
+              class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>
+
+<pre>
+
+  {{ artik | json }}
+
+</pre>
+

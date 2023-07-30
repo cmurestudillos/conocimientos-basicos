@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Funcion eq() - jQuery</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "li" ).eq( 4 ).css( "background-color", "yellow" );
+    });
+  });
+</script>
+
+<button>Resalta el quinto elemento de la lista</button>
+
+<ul>
+  <li>Manzanas
+    <ul>
+      <li>Grande</li>
+      <li>Jugosa</li>
+      <li>Roja</li>
+    </ul>
+  </li>
+  <li>Naranjas</li>
+  <li>Papaya
+    <ul>
+      <li>Papaya</li>
+      <li>Carica</li>
+    </ul>
+  </li>
+  <li>Lychees</li>
+  <li>Fruta de la Pasion</li>
+  <li>Mango</li>
+</ul>

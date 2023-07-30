@@ -1,0 +1,37 @@
+<div class="edit-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Modificar Personaje</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-8">
+
+        <form class="edit-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Nombre" class="form-control" formControlName="nombre">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.nombre">
+              <mat-error *ngIf="exampleForm.get('nombre').hasError(validation.type) && (exampleForm.get('nombre').dirty || exampleForm.get('nombre').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="delete-button" color="warn" type="button" (click)="cancel()">Cancelar</button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Guardar</button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="delete-button" color="warn" type="accent" (click)="delete()" [disabled]="!exampleForm.valid">Eliminar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

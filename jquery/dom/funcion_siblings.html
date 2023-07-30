@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Funcion siblings() - jQuery</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "li:nth-child(3)" ).siblings().css( "background-color", "yellow" );
+    });
+  });
+</script>
+
+<button>Resalta los tres primeros elementos de cada lista</button>
+
+<ul>
+  <li>Manzanas
+    <ul>
+      <li>Grandes</li>
+      <li>Jugosas</li>
+      <li>Rojas</li>
+    </ul>
+  </li>
+  <li>Naranjas</li>
+  <li>Papaya
+    <ul>
+      <li>Papaya</li>
+      <li>Carica</li>
+    </ul>
+  </li>
+  <li>Lychees</li>
+  <li>Fruta de la pasion</li>
+  <li>Mango</li>
+</ul>

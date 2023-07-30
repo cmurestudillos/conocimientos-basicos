@@ -1,0 +1,28 @@
+<div class="list-group" *ngFor="let item of data">
+  <div class="list-group-item list-group-item-action margin10" >
+    <div class="fleft" (click)="getUser(item.id)">
+      <img [src]="item.avatar ? item.avatar : 'https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzQ4NDA5MzU4/ricky-martin-9542230-1-402.jpg'">
+    </div>
+    <div class="fleft">
+      <p class="posicionar">{{item.first_name}} {{item.last_name}}</p>
+    </div>
+    <div class="fright">
+      <button class="btn posicionar red darken-2 lighten-1 waves-effect waves-light" (click)="deleteRegister(item.id)">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<div class="fixed-action-btn toolbar">
+  <a class="btn-floating btn-large red darken-2">
+    <i class="large material-icons">add</i>
+  </a>
+  <ul class="row white">
+    <li class="col s12">
+      <app-custom-input contentLabel="Usuario" [(ngModel)]="user.first_name"></app-custom-input>
+    </li>
+    <li class="col s12">
+      <app-custom-input contentLabel="Nombre" [(ngModel)]="user.last_name"></app-custom-input>
+    </li>
+    <li class="red darken-2 waves-effect waves-light"><a (click)="saveRegister()"><i class="material-icons">send</i></a></li>
+  </ul>
+</div>

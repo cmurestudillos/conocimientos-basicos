@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Ejemplo de grafico de Aceleracion</title>
+  <script type="text/javascript" src="js/loader.js"></script>
+  <script type="text/javascript" src="js/gauge_II.js"></script>
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawGauge);
+  </script>
+</head>
+<body>
+  <div id="gauge_div" style="width:280px; height: 140px;"></div>
+  <input type="button" value="Mas Rapido" onclick="changeTemp(1)" />
+  <input type="button" value="Mas Lento" onclick="changeTemp(-1)" />
+</body>
+</html>

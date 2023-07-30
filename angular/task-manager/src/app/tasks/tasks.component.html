@@ -1,0 +1,84 @@
+<div id="tasks-overview">
+    
+    <h2>Mis Tareas:</h2>
+
+    <div id="tasks-overview-top">
+        
+    </div>
+    
+    <div id="tasks-red" class="task-table">
+        <h3>- {{Priority.Red}}</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Eliminar tarea</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks.getTasksByPriority(Priority.Red)">
+                    <td>{{task.description}}</td>
+                    <td>{{task.date.toDateString()}}</td>
+                    <td class="remove-task" (click)="removeTask(task)"><i class="fa fa-times" aria-hidden="true"></i></td>
+                </tr>
+                <tr *ngIf="tasks.getTasksByPriority(Priority.Red).length == 0">
+                    <td colspan="3">no hay tareas urgentes, buen trabajo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tasks-yellow" class="task-table">
+        <h3>- {{Priority.Yellow}}</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Eliminar Tarea</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks.getTasksByPriority(Priority.Yellow)">
+                    <td>{{task.description}}</td>
+                    <td>{{task.date.toDateString()}}</td>
+                    <td class="remove-task" (click)="removeTask(task)"><i class="fa fa-times" aria-hidden="true"></i></td>
+                </tr>
+                <tr *ngIf="tasks.getTasksByPriority(Priority.Yellow).length == 0">
+                    <td colspan="3">No hay tareas importantes, buen trabajo</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tasks-green" class="task-table">
+        <h3>- {{Priority.Green}}</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>eliminar tarea</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks.getTasksByPriority(Priority.Green)">
+                    <td>{{task.description}}</td>
+                    <td>{{task.date.toDateString()}}</td>
+                    <td class="remove-task" (click)="removeTask(task)"><i class="fa fa-times" aria-hidden="true"></i></td>
+                </tr>
+                <tr *ngIf="tasks.getTasksByPriority(Priority.Green).length == 0">
+                    <td colspan="3">No hay tareas poko importantes, buen trabajo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+<div routerLink="/task" id="add-button"><i class="fa fa-plus" aria-hidden="true"></i>
+</div>

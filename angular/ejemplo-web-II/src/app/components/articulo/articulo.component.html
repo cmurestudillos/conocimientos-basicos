@@ -1,0 +1,30 @@
+<h1 class="animated fadeIn">{{ articulo.nombre | uppercase }} <small>({{ articulo.precio }} €) </small></h1>
+    <hr>
+
+<div class="row animated fadeIn fast">
+
+  <div class="col-md-4">
+
+    <img [src]="articulo.img" class="img-fluid" [alt]="articulo.nombre">
+    <br><br>
+    <a [routerLink]="['/productos']" class="btn btn-outline-danger btn-block">Regresar</a>
+
+  </div>
+
+  <div class="col-md-8">
+    <h3>{{ articulo.nombre }}</h3>
+    <hr>
+    <p>
+      {{ articulo.bio }}
+    </p>
+    <div>
+      <img *ngIf="articulo.alergeno == 'free'" class="img-logo" src="assets/img/free.svg" alt="Free">
+      <img *ngIf="articulo.alergeno == 'gluten'" class="img-logo" src="assets/img/gluten.svg" alt="Gluten">
+      <img *ngIf="articulo.alergeno == 'lacteo'" class="img-logo" src="assets/img/lacteo.svg" alt="Lacteo">
+      <img *ngIf="articulo.alergeno == 'molusco'" class="img-logo" src="assets/img/molusco.svg" alt="Molusco">
+    </div>
+
+
+  </div>
+
+</div>

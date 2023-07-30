@@ -1,0 +1,51 @@
+body {
+    font-family: 'Lato';
+  }
+   
+  h2, h3, h4, p {
+    font-family: 'Lato';
+    margin: 10px;
+  }
+   
+  .country-block p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+   
+  .country-block h4 {
+    margin-bottom: 10px;
+  }
+   
+  h4 {
+    position: relative;
+    font-size: 1.25rem;
+  }
+  .container {
+    margin: 0 50px;
+    text-align: center;
+  }
+   
+  .country-unit {
+      width: 200px;
+      display: inline-block;
+      margin: 10px;
+  }
+   
+  br {
+    clear: both;
+  }
+   
+  .country-block {
+      padding: 30px 0;
+      text-align: center;
+      color: white;
+      height: 150px;
+      background-color: #795548;
+      border-radius: 2px;
+  }
+   
+  .country-block:hover {
+    background-color: #9C27B0;
+    cursor: pointer;
+    color:white;
+  }

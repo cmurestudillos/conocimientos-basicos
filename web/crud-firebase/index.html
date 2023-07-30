@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejemplo - CRUD con Firebase </title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2><b>Agenda</b></h2>
+					</div>
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" title="Añadir"><i class="material-icons">&#xE147;</i></a>
+						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal" title="Eliminar"><i class="material-icons">&#xE15C;</i></a>
+					</div>
+				</div>
+				<!-- <div class="row">
+					<div class="col-sm-12">
+						<label for="search-keyword"></label>
+						<div class="form-group">
+							<input type="text" id="search-keyword" class="form-control" placeholder="Search by keyword">
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="table-responsive">
+				<table id="employee-table" class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>
+								<span class="custom-checkbox">
+									<input type="checkbox" id="selectAll">
+									<label for="selectAll"></label>
+								</span>
+							</th>
+							<th>Nombre</th>
+							<th>Email</th>
+							<th>Dirección</th>
+							<th>Telefono</th>
+							<th>Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div class="clearfix">
+				<!-- <div class="hint-text">Showing <b class="count">0</b> out of <b class="count">0</b> entries</div> -->
+				<ul class="pagination">
+					<li class="page-item"><a href="#" id="js-previous-debug" class="page-link">Anterior</a></li>
+					<li class="page-item"><a href="#" id="js-next-debug" class="page-link">Siguiente</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Edit Modal HTML -->
+	<div id="addEmployeeModal" class="modal fade" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="add-employee-form">
+					<div class="modal-header">
+						<h4 class="modal-title">Añadir Contacto</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" id="employee-name" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" id="employee-email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>dirección</label>
+							<textarea id="employee-address" class="form-control" required></textarea>
+						</div>
+						<div class="form-group">
+							<label>Telefono</label>
+							<input type="text" id="employee-phone" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-success" value="Añadir">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Edit Modal HTML -->
+	<div id="editEmployeeModal" class="modal fade" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="edit-employee-form">
+					<div class="modal-header">
+						<h4 class="modal-title">Editar contacto</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" id="employee-name" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" id="employee-email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Dirección</label>
+							<textarea id="employee-address" class="form-control" required></textarea>
+						</div>
+						<div class="form-group">
+							<label>Telefono</label>
+							<input type="text" id="employee-phone" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-info" value="Guardar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Delete Modal HTML -->
+	<div id="deleteEmployeeModal" class="modal fade" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="delete-employee-form">
+					<div class="modal-header">
+						<h4 class="modal-title">Eliminar Contacto</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>¿Estas seguro de que quieres eliminarlo?</p>
+						<p class="text-warning"><small>No se podra deshacer el cambio.</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-danger" value="Eliminar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-analytics.js"></script>
+
+	<script>
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+		apiKey: "AIzaSyC7OEJzzRbV68rr8XbIRWrtdS8DRJtuPnw",
+		authDomain: "empleados-29897.firebaseapp.com",
+		databaseURL: "https://empleados-29897.firebaseio.com",
+		projectId: "empleados-29897",
+		storageBucket: "empleados-29897.appspot.com",
+		messagingSenderId: "306743528008",
+		appId: "1:306743528008:web:d90aa8f6ebdfc5119fa67d",
+		measurementId: "G-LYDEVN6ZW5"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
+	const db = firebase.firestore();
+	</script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

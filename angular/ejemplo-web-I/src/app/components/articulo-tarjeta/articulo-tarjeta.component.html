@@ -1,0 +1,14 @@
+<div class="card animated fadeIn fast" >
+  <img class="card-img-top img-fluid" [src]="articulo.img"  [alt]="articulo.nombre">
+  <div class="card-body">
+    <h4 class="card-title">{{ articulo.nombre }}</h4>
+    <p class="card-text"> {{ articulo.bio }} </p>
+    <p class="card-text"><small class="text-muted">{{ articulo.aparicion }}</small></p>
+
+    <button (click)="verArticulo()"
+      type="button" class="btn btn-outline-primary btn-block">
+      Ver más...
+    </button>
+
+  </div>
+</div>

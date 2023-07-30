@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-danger bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/logo-dia.svg" width="60" height="60" alt="">
+  </a>
+
+  <div class="collapse navbar-collapse ml-4" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <!-- active -->
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['home']">Inicio</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['productos']">Productos</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['catalogo']">Catalogo</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['formulario']">Formulario</a>
+      </li>    
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['grafico']">Grafico</a>
+      </li>           
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['about']">Sobre Nosotros</a>
+      </li>
+    </ul>
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar articulo" (keyup.enter)="buscarArticulo(buscarTexto.value)"
+        #buscarTexto>
+      <button (click)="buscarArticulo(buscarTexto.value)" class="btn btn-outline-danger active my-2 my-sm-0 border border-white" type="button">Buscar</button>
+    </form>
+
+
+  </div>
+</nav>

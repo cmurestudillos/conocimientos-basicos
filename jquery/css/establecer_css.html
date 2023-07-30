@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>Establecer CSS</title>
+
+<style>
+  div {
+    background: limegreen;
+    color: white;
+    width: 200px;
+    padding: 20px;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "div" ).click(function() {
+      var theColor = $( this ).css( "background-color" );
+      $( "h1" ).html( theColor );
+    });
+  });
+</script>
+
+<div>Pincha para saber el color de fondo</div>
+<h1>El color es...</h1>

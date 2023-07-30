@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-4 offset-md-1">
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Buscar por nombre..." (keyup)="searchByNombre()">
+      <div class="input-group-append">
+        <span class="input-group-text"><ion-icon class="icon" name="search"></ion-icon></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="list-group hero-list">
+  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-8 text-col">
+        <h5 class="mb-1">{{item.payload.doc.data().nombre}}</h5>
+      </div>
+      <div class="col col-md-2 actions-col text-right">
+        <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+          <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

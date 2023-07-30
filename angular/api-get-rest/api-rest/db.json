@@ -1,0 +1,83 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Gambas cocidas",
+      "bio": "Gambas cocidas y peladas, muy ricas con mahonesa",
+      "img": "assets/img/gambas.png",
+      "precio": "3.57",
+      "alergeno": "molusco"
+    },
+    {
+      "id": 2,
+      "nombre": "Pan de molde",
+      "bio": "Pan de molde, como pan de molde no es gran cosa pero te saca de algun apuro",
+      "img": "assets/img/pan.jpg",
+      "precio": "1.24",
+      "alergeno": "gluten"
+    },
+    {
+      "id": 3,
+      "nombre": "Jamón en lonchas",
+      "bio": "Ibérico. Esto junto con el pan de molde, te salva de comer 'pan con pan...'",
+      "img": "assets/img/jamon.jpg",
+      "precio": "2.87",
+      "alergeno": "free"
+    },
+    {
+      "id": 4,
+      "nombre": "Queso Emmental",
+      "bio": "Esto junto con el pan de molde y el jamón, son la santísima trinidad para salir de ese apuro",
+      "img": "assets/img/queso.png",
+      "precio": "2.45",
+      "alergeno": "lacteo"
+    },
+    {
+      "id": 5,
+      "nombre": "Nordes",
+      "bio": "Ginebra creada a base de albariño, quien no lo ha probado, no ha besado jamás el cielo en la tierra",
+      "img": "assets/img/licor.jpg",
+      "precio": "24.87",
+      "alergeno": "free"
+    },
+    {
+      "id": 6,
+      "nombre": "Platano de canarias",
+      "bio": "En el top 3 de productos más vendidos de un supermercado desde antes de que existieran las hombreras",
+      "img": "assets/img/platano.jpg",
+      "precio": "3.08",
+      "alergeno": "free"
+    },
+    {
+      "id": 7,
+      "nombre": "nombreArticulo",
+      "bio": "bioArticulo",
+      "img": "assets/img/nombreImg.png",
+      "precio": "precioArticulo",
+      "alergeno": "alergenoArticulo"
+    },
+    {
+      "id": 8,
+      "nombre": "Sardinillas",
+      "bio": "DIA sardinillas en escabeche lata 62 grs.",
+      "img": "assets/img/sardinilla.png",
+      "precio": "0,62 €",
+      "alergeno": "free"
+    },
+    {
+      "id": 9,
+      "nombre": "Lentejas",
+      "bio": "Lentejas pardas.",
+      "img": "assets/img/sardinilla.png",
+      "precio": "0,62 €",
+      "alergeno": "free"
+    }
+  ],
+  "data":[
+    {
+      "Enero": 15,
+      "Febrero": 25,
+      "Marzo": 45
+    }
+  ]
+}

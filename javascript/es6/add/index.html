@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO</title>
+	<!-- Importar liberia JavaScript -->
+	<script type="text/javascript" src="/js/add.js"></script>	
+	<!-- Bootstrap -->
+	<link rel="stylesheet"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<style>
+		form#form {
+			display: flex;
+		}
+	</style>
+</head>
+<body>
+	<div class="container text-center">
+		<h2>TODO</h2>
+		<form id="form" action="">
+			<input id="new_note" class="form-control" type="text" name="new_note">
+			<a onclick="add()" class="btn btn-success">+</a>
+		</form>
+		<div id="tareas">
+		</div>
+	</div>
+</body>
+</html>

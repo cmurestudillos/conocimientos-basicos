@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>AJAX - load()</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "#data" ).load( "https://www.quackit.com/jquery/examples/latestData.html" );
+    });
+  });
+</script>
+
+<button>Carga datos</button>
+
+<div id="data"></div>

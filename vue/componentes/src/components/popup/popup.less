@@ -1,0 +1,48 @@
+@import '../variables.less';
+
+.popup-modal {
+  width: 100%;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  border-radius: 0;
+  opacity: 0.6;
+  
+  color: @color-text;
+  transition-duration: .3s;
+  height: auto;
+  background: #EFEFF4;
+
+  transition-property: transform, opacity;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  opacity: 1;
+  display: block;
+  transform: translate3d(0,0,0);
+
+  &.popup-modal-enter,
+  &.popup-modal-leave-active {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  &.full {
+    height: 100%;
+  }
+
+  .modal-content {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+
+  .nav ~ .modal-content {
+    padding-top: 2.2rem;
+  }
+
+  .toolbar .modal-content {
+    padding-top: 2.2rem;
+  }
+}

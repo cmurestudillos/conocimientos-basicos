@@ -1,0 +1,18 @@
+<div id="task-editor">
+   <h2>Añadir una nueva tarea</h2>
+   
+    <div id="task-form">
+        <label for="task-description">Descripción:</label>
+        <input id="task-description" [(ngModel)]="taskDescription" type="text" placeholder="Dante necesita comida...">
+    
+        <label for="task-priority">Prioridad:</label>
+        <select id="task-priority" [(ngModel)]="taskPriority">
+            <option *ngFor="let priority of ['Green', 'Yellow', 'Red']">{{priority}}</option>
+        </select>
+        
+        <button (click)="addTask()">Añadir</button> 
+    </div>
+</div>
+
+<div routerLink="/tasks" id="add-button"><i class="fa fa-times" aria-hidden="true"></i>
+</div>

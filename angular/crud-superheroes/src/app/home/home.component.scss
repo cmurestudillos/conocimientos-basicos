@@ -1,0 +1,16 @@
+.hero-list {
+  padding: 40px 60px;
+  .text-col {
+    margin: auto 0px;
+  }
+  .actions-col {
+    text-align: center;
+    margin: auto 0px;
+    .action {
+      line-height: 1;
+    }
+    .icon {
+      font-size: 20px;
+    }
+  }
+}

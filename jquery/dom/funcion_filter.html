@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Funcion filter() - jQuery</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "li" ).filter( ":odd" ).fadeOut( "slow" );
+    });
+  });
+</script>
+
+<button>Oculta varios elementos de la lista</button>
+
+<ul>
+  <li>Manzanas</li>
+  <li>Naranjas</li>
+  <li>Papaya</li>
+  <li>Lychees</li>
+  <li>Fruta de la pasion</li>
+  <li>Mango</li>
+</ul>

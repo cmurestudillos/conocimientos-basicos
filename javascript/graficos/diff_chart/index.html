@@ -1,0 +1,17 @@
+<html>
+        <head>
+            <title>Ejemplo de grafico de Dispersion</title>
+          <script type="text/javascript" src="js/loader.js"></script>
+          <script type="text/javascript" src="js/diff.js"></script>
+          <script type="text/javascript">
+            google.charts.load('current', {packages:['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+          </script>
+        </head>
+        <body>
+          <span id='piechart_before' style='width: 450px; display: inline-block'></span>
+          <span id='piechart_after' style='width: 450px; display: inline-block'></span>
+          <br>
+          <span id='piechart_diff' style='width: 450px; position: absolute; left: 250px'></span>
+        </body>
+      </html>

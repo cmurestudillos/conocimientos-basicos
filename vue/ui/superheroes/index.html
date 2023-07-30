@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Superheroes - Vue.js</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.min.js"></script>
+</head>
+<body>
+  <main id="app" class="grid">
+    <h1>Lista de <b>Superheroes</b></h1>
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <template id="heroes-list">
+    <section>
+      <table>
+        <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Poder</th>
+          <th>Nivel</th>
+          <th>Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="hero in filteredHeroes">
+          <td>
+            <router-link v-bind:to="{name: 'hero', params: {hero_id: hero.id}}">{{ hero.name }}</router-link>
+          </td>
+          <td>{{ hero.power }}</td>
+          <td>{{ hero.badass }}</td>
+          <td>
+            <router-link v-bind:to="{name: 'hero-edit', params: {hero_id: hero.id}}">Editar</router-link>
+            <span> / </span>
+            <router-link v-bind:to="{name: 'hero-delete', params: {hero_id: hero.id}}">Eliminar</router-link>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <router-link class="btn btn-main" v-bind:to="{path: '/hero-add'}">Nuevo Superheroe</router-link>
+    </section>
+    </template>
+
+    <template id="hero">
+    <section class="grid">
+      <h2>{{ hero.name }}</h2>
+      <p>
+        <b>Poder:</b> {{ hero.power }}
+        <br>
+        <b>Nivel:</b> {{ hero.badass }}
+      </p>
+      <br>
+      <router-link v-bind:to="'/'">Volver</router-link>
+    </section>
+    </template>
+
+    <template id="hero-add">
+    <section>
+      <h2>Añadir Superheroe</h2>
+      <form v-on:submit.prevent="createHero">
+        <label>Nombre</label>
+        <input id="add-name" v-model="hero.name" required/>
+        <label>Poder</label>
+        <textarea id="add-power" rows="8" v-model="hero.power" required></textarea>
+        <label>Nivel</label>
+        <input type="number" min="0" max="10" v-model="hero.badass" required/>
+        <button type="submit" class="btn btn-main">Crear</button>
+        <router-link class="btn" v-bind:to="'/'">Cancelar</router-link>
+      </form>
+    </section>
+  </template>
+
+  <template id="hero-edit">
+  <section>
+    <h2>Editar Superheroe</h2>
+    <form v-on:submit.prevent="updateHero">
+      <label>Nombre</label>
+      <input v-model="hero.name" required/>
+      <label>Poder</label>
+      <textarea rows="10" v-model="hero.power"></textarea>
+      <label>Nivel</label>
+      <input type="number" v-model="hero.badass"/>
+      <button type="submit" class="btn btn-main">Actualizar</button>
+      <router-link class="btn" v-bind:to="'/'">Cancelar</router-link>
+    </form>
+  </section>
+  </template>
+
+  <template id="hero-delete">
+  <section>
+    <h2>Eliminar <b>{{ hero.name }}</b>?</h2>
+    <form v-on:submit.prevent="deleteHero">
+      <p>¿Estas seguro de querer eliminar a 
+        <b>{{ hero.name }}</b> del universo?
+        El nunca lo haria...
+      </p>
+      <button type="submit" class="btn btn-main">Eliminar</button>
+      <router-link class="btn" v-bind:to="'/'">Cancelar</router-link>
+    </form>
+  </section>
+  </template>
+        
+  <script>
+      // [ Data ]
+
+      let heroes = [
+        { id : 0, name : 'Batman', power : 'Es rico...', badass: 10 },
+        { id : 1, name : 'Superman', power : 'Rayos laser', badass: 7 },
+        { id : 2, name : 'Flash', power : 'Rapido', badass: 5 },
+        { id : 3, name : 'Spiderman', power : 'Es un buen tipo', badass: 1 },
+        { id : 4, name : 'Hulk', power : 'SMASH!', badass: 42 }
+      ];
+
+      // [ Components ]
+
+      let HeroesList = Vue.extend({
+        template: '#heroes-list',
+        data: function() { return { heroes } },
+        computed: { filteredHeroes: function() { return this.heroes; } }
+      });
+
+      let Hero = Vue.extend({
+        template: '#hero',
+        data: function() { return { hero: findHero(this.$route.params.hero_id)} }
+      });
+
+      let HeroAdd = Vue.extend({
+        template: '#hero-add',
+        data: function() { return { hero: { name: '', power: '', badass: 1}} },
+        methods: {
+          createHero: function() {
+            let hero = this.hero;
+            heroes.push({
+              id:     getNextId(),
+              name:   hero.name,
+              power:  hero.power,
+              badass: hero.badass
+            });
+            router.push('/');
+          }
+        }
+      });
+
+      let HeroEdit = Vue.extend({
+        template: '#hero-edit',
+        data: function () {
+          return { hero: findHero(this.$route.params.hero_id) };
+        },
+        methods: {
+          updateHero: function () {
+            let hero = this.hero; 
+            heroes[findHeroKey(hero.id)] = {
+              id:     hero.id,
+              name:   hero.name,
+              power:  hero.power,
+              badass: hero.badass
+            }
+            router.push('/');
+          }
+        }
+      });
+
+      let HeroDelete = Vue.extend({
+        template: '#hero-delete',
+        data: function () {
+          return { hero: findHero(this.$route.params.hero_id) };
+        },
+        methods: {
+          deleteHero: function () {
+            heroes.splice(findHeroKey(this.$route.params.hero_id), 1);
+            router.push('/');
+          }
+        }
+      });
+
+      // [ Database connectors ]
+
+      function findHero(id) {
+        for (let i = 0; i < heroes.length; ++i) {
+          if (heroes[i].id === id) return heroes[i];
+        }
+      }
+      function findHeroKey(id) {
+        for (let i = 0; i < heroes.length; ++i) {
+          if (heroes[i].id === id) return i;
+        }
+      }
+      function getNextId() { return (heroes[heroes.length-1].id+1); }
+
+      // [ App + Router ]
+
+      let router = new VueRouter(
+        { routes: [
+          { path: '/', component: HeroesList},                                         // Heroes list
+          { path: '/hero/:hero_id', component: Hero, name : 'hero'},                   // Hero details
+          { path: '/hero-add', component: HeroAdd},                                    // Add new hero
+          { path: '/hero/:hero_id/edit', component: HeroEdit, name: 'hero-edit'},      // Edit hero
+          { path: '/hero/:hero_id/delete', component: HeroDelete, name: 'hero-delete'} // Delete hero
+        ]}
+      );
+
+      let vm = new Vue({router}).$mount('#app');
+  </script>
+  <style>
+    *, *:after, *:before { box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 1.8rem;
+    color: #111;  
+    background: #f4f4f4;
+}
+
+h1, h2 {
+  margin: 0 0 1rem 0;
+  font-weight: normal;
+  text-align: center;
+}
+b { font-weight: bold; }
+p { 
+  margin: 0;
+  line-height: 2.0;
+}
+
+a {
+  color: #111;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.10); 
+  text-decoration: none;
+  transition: all 0.3s ease;
+  &:hover {
+    color: #f04;
+    border-bottom: 0.1rem solid #f04; 
+  }
+}
+
+hr {
+  width: 70%;
+  margin: 0 auto 2rem;
+  border: 0;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+form {
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  input, textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 2rem;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+    font: inherit;
+    font-size: 1.6rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+table {
+    width: 100%;
+  margin: 2rem 0 4rem 0;
+    border-spacing: 0;
+  td, th {
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.05);
+  }
+  th {
+    padding: 2.0rem 1.0rem;
+    text-align: left;
+  }
+  td {
+    padding: 1.8rem 1.0rem;
+    transition: all 0.3s ease;
+    .btn { display: inline; }
+  }
+  tr:hover td { background: rgba(0, 0, 0, 0.03); }
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem 2rem;  
+  color: #111;
+  background: transparent;
+  border: 0.1rem solid #111;
+  outline: 0;
+  border-radius: 0.3rem;
+  
+  font: inherit;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  
+  transition: all 0.25s ease;
+  
+  &:visited { color: #111; }
+  &:hover, &:focus {
+    border: 0.1rem solid #f04;
+    color: #f04; 
+  }
+  
+  &.btn-main {
+    border: 0;
+    color: #fff;
+    background: #44a;
+    &:visited { color: #fff; }
+    &:hover, &:focus { background: #f04; }
+  }
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  width: 70rem;
+  margin: 4rem auto;
+  padding: 4rem;
+  border-radius: 0.3rem;
+  background: #fff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.10),
+              0 0 3rem rgba(0, 0, 0, 0.03);
+              
+  section { width: 100%; }
+}
+
+@media only screen and (max-width: 48.0rem) {
+  #app { width: 90%; }
+}
+  </style>  
+</body>
+</html>

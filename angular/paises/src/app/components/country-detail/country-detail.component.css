@@ -1,0 +1,41 @@
+.container {
+    margin: 0 auto;
+    width: 380px;
+  }
+   
+  h2, p {
+    font-family: 'Lato';
+  }
+   
+  p {
+    font-size: 1.25rem;
+  }
+   
+  p span {
+    color: #4CAF50;
+    border-radius: 5px;
+    width: 200px;
+    display: inline-block;
+  }
+   
+  label {
+    display: inline-block;
+    width: 3em;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+    font-family: 'Lato';
+  }
+   
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #F44336;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-family: 'Lato';
+  }

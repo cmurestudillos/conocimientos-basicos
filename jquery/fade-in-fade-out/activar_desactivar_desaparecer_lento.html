@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Activar / Desactivar / Desaparecer: lento</title>
+
+<style>
+  p {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $( "#toggleContent" ).click(function() {
+    $( "p" ).fadeToggle( "slow" );
+  });
+});
+</script>
+<button id="toggleContent">Click</button>
+<p>Hola Mundo!!!</p>

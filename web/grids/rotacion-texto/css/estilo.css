@@ -1,0 +1,24 @@
+.la {
+    color: blue;
+    font-size: 55px;
+}
+.webera {
+    color: gray;
+    display: block;
+    font-size: 20px;
+}
+.es{
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    height:20px;
+    width:25px;
+}
+.inline-block{
+    display:-moz-inline-stack;
+    display:inline-block;
+    zoom:1;
+    *display:inline; 
+}

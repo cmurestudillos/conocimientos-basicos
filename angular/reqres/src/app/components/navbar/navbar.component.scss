@@ -1,0 +1,29 @@
+// Hoja de estilos para el Navbar
+.tcenter{
+    text-align: center;
+}
+.bold{
+    font-weight: bold;
+}
+.fondo{
+    background-image: linear-gradient(#d4251d, #bf1818, #ad1012);
+}
+nav {
+    color: #fff;
+    background-color: transparent;
+    width: 100%;
+    height: 56px;
+    line-height: 50px;
+}
+nav ul a:hover {
+     background-color:transparent; 
+}
+.logo{
+    width: 65px;
+    height: 25px;
+    margin: 15px;
+}
+li a:hover {
+    color: white;
+    text-decoration: underline;
+}

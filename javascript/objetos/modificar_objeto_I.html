@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Ejercicio - Nº 08 - C</title>
+        <!-- Import - Funciones Javascript -->        
+        <script src="js/funciones.js"></script>                    
+    </head>
+    <body>
+ 
+       <!-- Funciones internas de body Javascript -->
+       <script language="javascript">
+                function miCoche(){
+        //Añadimos en el contructor la propiedad
+        this.info = 'Seat';
+
+        //Añadimos los metodos con "this"
+        this.puertas = function(){
+            alert(this.info);
+        }
+        //Se crea un nuevo metodo que nos permita reescribir la propiedad info
+        this.configurarInfo = function(nuevaInfo){
+            this.info = nuevaInfo;
+        }
+
+            }
+            var nuevoObjeto1 = new miCoche();
+            var nuevoObjeto2 = new miCoche();
+        </script> 
+
+        <input type="button" onclick="nuevoObjeto1.mostrarInfo();"     value="Mostrar Info 1" />
+        <input type="button" onclick="nuevoObjeto1.mostrarInfo();"     value="Mostrar Info 2" />
+        <input type="button" onclick="nuevoObjeto2.configurarInfo('BMW');" value="Cambiar Info 2" />
+
+
+    </body>
+</html>

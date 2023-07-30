@@ -1,0 +1,55 @@
+{
+  "name": "vue-responsive-grid-layout",
+  "version": "1.1.3",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build-modern": "vue-cli-service build --modern",
+    "build-modern-lib": "vue-cli-service build --modern --target lib --name vue-responsive-grid-layout ./src/components/index.ts",
+    "build-modern-wc": "vue-cli-service build --modern --target wc --name vue-responsive-grid-layout ./src/components/*.vue",
+    "build-modern-wc-async": "vue-cli-service build --modern --target wc-async --name vue-responsive-grid-layout ./src/components/*.vue",
+    "build-lib": "vue-cli-service build --target lib --name vue-responsive-grid-layout ./src/components/index.ts",
+    "build-wc": "vue-cli-service build --target wc --name vue-responsive-grid-layout ./src/components/*.vue",
+    "build-wc-async": "vue-cli-service build --target wc-async --name vue-responsive-grid-layout ./src/components/*.vue",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.2.0"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "main": "./dist/vue-responsive-grid-layout.common.js",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-typescript": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
+    "lodash": "^4.17.11",
+    "typescript": "^3.0.0",
+    "vue-draggable-core": "^1.0.5",
+    "vue-resizable-core": "^1.0.3",
+    "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.1"
+  },
+  "description": "## How to use: 1. Just use `npm install --save vue-responsive-grid-layout` 2. Use the components in your file directly.",
+  "author": "Łukasz Rembacz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lrembacz/vue-responsive-grid-layout.git"
+  },
+  "homepage": "https://github.com/lrembacz/vue-responsive-grid-layout#readme",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "grid-layout",
+    "responsive",
+    "vue-responsive-grid-layout"
+  ]
+}

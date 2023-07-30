@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Lista de todos los países en nuestra base de datos</h2>
+      <a *ngFor="let country of countries"
+      class="country-unit" routerLink="/detail/{{country.name}}">
+        <div class="country-block">
+          <h4>{{country.name}}</h4>
+          <p>Capital <br> ({{country.capital}})</p>
+        </div>
+      </a>
+</div>

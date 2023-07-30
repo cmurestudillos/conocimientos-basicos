@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Superheroes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="appSuperheroes" class="container">
+        <!-- Formulario para añadir superheroes -->
+        <section class="form">
+            <form action="" class="text-center">
+                <input v-model="nombre" @keyup.enter="crearSuperheroe" type="text" class="form-control" placeholder="Nombre">
+                <input v-model="poder" @keyup.enter="crearSuperheroe" type="text" name="poder" placeholder="Poder" class="form-control">
+                <!-- Botón para añadir -->
+                <input @click="crearSuperheroe" type="button" value="Añadir" class="btn btn-success">
+            </form>
+        </section>
+        <!-- Tabla donde se muestran los datos -->
+        <section class="data">
+            <caption>Superheroe</caption>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Poder</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(superheroe, index) in superheroes">
+                        <td>{{ superheroe.id }}</td>
+                        <td>
+                            <span v-if="formActualizar && idActualizar == index">
+                                <!-- Formulario para actualizar -->
+                                <input v-model="nombreActualizar" type="text" class="form-control">
+                            </span>
+                            <span v-else>
+                                <!-- Dato nombre -->
+                                {{ superheroe.nombre }}
+                            </span>
+                        </td>
+                        <td>
+                            <span v-if="formActualizar && idActualizar == index">
+                                <!-- Formulario para actualizar -->
+                                <input v-model="poderActualizar" type="text" class="form-control">
+                            </span>
+                            <span v-else>
+                                <!-- Dato poder -->
+                                {{ superheroe.poder }}
+                            </span>
+                        </td>
+                        <td>
+                            <!-- Botón para guardar la información actualizada -->
+                            <span v-if="formActualizar && idActualizar == index">
+                                <button @click="guardarActualizacion(index)" class="btn btn-success">Guardar</button>
+                            </span>
+                            <span v-else>
+                                <!-- Botón para mostrar el formulario de actualizar -->
+                                <button @click="verFormActualizar(index)" class="btn btn-warning">Actualizar</button>
+                                <!-- Botón para borrar -->
+                                <button @click="borrarSuperheroe(index)" class="btn btn-danger">Borrar</button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Vue({
+                el: '#appSuperheroes',
+                data: {
+                    // Input nombre
+                    nombre: '',
+                    // Input poder
+                    poder: '',
+                    // Ver o no ver el formulario de actualizar
+                    formActualizar: false,
+                    // La posición de tu lista donde te gustaría actualizar 
+                    idActualizar: -1,
+                    // Input nombre dentro del formulario de actualizar
+                    nombreActualizar: '',
+                    // Input poder dentro del formulario de actualizar
+                    poderActualizar: '',
+                    // Lista de superheroes
+                    superheroes: [] 
+                },
+                methods: {
+                    crearSuperheroe: function () {
+                        // Añadimos a lista
+                        this.superheroes.push({
+                            id: + new Date(),
+                            nombre: this.nombre,
+                            poder: this.poder
+                        });
+                        // Vaciar el formulario de añadir
+                        this.nombre = '';
+                        this.poder = '';
+                    },
+                    verFormActualizar: function (superheroe_id) {
+                        // Antes de mostrar el formulario de actualizar, rellenamos sus campos
+                        this.idActualizar = superheroe_id;
+                        this.nombreActualizar = this.superheroes[superheroe_id].nombre;
+                        this.poderActualizar = this.superheroes[superheroe_id].poder;
+                        // Mostramos el formulario
+                        this.formActualizar = true;
+                    },
+                    borrarSuperheroe: function (superheroe_id) {
+                        // Borramos de la lista
+                        this.superheroes.splice(superheroe_id, 1);
+                    },
+                    guardarActualizacion: function (superheroe_id) {
+                        // Ocultamos nuestro formulario de actualizar
+                        this.formActualizar = false;
+                        // Actualizamos los datos
+                        this.superheroes[superheroe_id].nombre = this.nombreActualizar;
+                        this.superheroes[superheroe_id].poder = this.poderActualizar;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

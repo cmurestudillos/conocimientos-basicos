@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Ejercicio - Nº 08 - D</title>  
+            <!-- Funciones internas de body Javascript -->
+            <script language="javascript">
+                    //Programacion orientada a Objetos - Ejercicio 13-d
+                    function Persona(nombrePersona){
+                        //Añadimos en la propiedad el argumento que viene
+                        this.nombre = nombrePersona;
+                        this.info = 'Esta persona se llama ' + this.nombre;
+                        this.mostrarInfo = function(){
+                        alert(this.info);
+                         }
+                    }
+                    var persona1 = new Persona('Adan');
+                    var persona2 = new Persona('Eva');
+            </script>                        
+    </head>
+    <body>
+        <input type="button" onclick="persona1.mostrarInfo();" value="Mostrar Adan" />
+        <input type="button" onclick="persona2.mostrarInfo();" value="Mostrar Eva" />
+    </body>
+</html>

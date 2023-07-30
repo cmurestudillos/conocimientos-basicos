@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Componentes Varios - Vue.js</title>
+  </head>
+  <body ontouchstart="">
+    <div id="app">
+      <transition name="slide">
+        <router-view></router-view>
+      </transition>
+    </div>
+    <!-- built files will be auto injected -->
+
+    <style>
+      body, html {
+        height: 100%;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+      }
+      .demos-title,
+      .demos-sub-title {
+        text-align: center;
+        font-size: 1.4rem;
+        color: #3cc51f;
+        font-weight: normal;
+        margin: .5rem 0;
+      }
+
+      .demos-sub-title {
+        font-size: 1.2rem;
+        margin: .4rem 0;
+      }
+
+      .demos-content-padded {
+        padding: 15px;
+      }
+
+      .demos-second-title {
+        text-align: center;
+        font-size: 24px;
+        color: #3cc51f;
+        font-weight: 400;
+        margin: 0 15%;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 14px;
+        padding: 20px;
+      }
+
+      footer a {
+        color: #999;
+        text-decoration: none;
+      }
+    </style>
+  </body>
+</html>

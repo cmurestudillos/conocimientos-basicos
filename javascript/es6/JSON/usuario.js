@@ -1,0 +1,1 @@
+usuario.data.city; // "Huesca"

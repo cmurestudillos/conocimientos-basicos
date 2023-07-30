@@ -1,0 +1,16 @@
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Tipo de Grafico</label>
+      <div class="col-md-8">
+        <select [(ngModel)]="grafico.nombre"
+                class="form-control"
+                name="nombre">
+           <option value="">Seleccione un Grafico</option>
+           <option *ngFor="let grafico of tpgraficos"
+                [value]="grafico.codigo"> {{ grafico.nombre }} </option>
+        </select>
+      </div>
+    </div>
+
+  <app-barra></app-barra>
+  <app-radar></app-radar>
+  

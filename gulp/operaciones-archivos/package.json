@@ -1,0 +1,17 @@
+{
+  "name": "operaciones-archivos",
+  "version": "1.0.0",
+  "description": "Ejemplo de operaciones con archivos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Mur",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp-minify": "^3.1.0"
+  }
+}

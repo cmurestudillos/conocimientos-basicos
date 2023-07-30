@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- meta tags requeridos -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <title>Grid's</title>
+
+    <style>
+    body{text-align: center;}
+    .fondo1{background: lightblue;}
+    .fondo2{background: greenyellow;}
+    .fondo3{background: lightcoral;}
+    .fondo4{background: lightgray;}
+    .tcenter{text-align: center;}
+    [class|=col]{border:1px solid black;}
+    </style>
+
+  </head>
+  <body>
+        <div class="container">
+          <div class="row">
+              <div class="col-sm-12 fondo1">col-12</div>
+          </div>
+
+          <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+          <div class="row">
+            <div class="col-3 d-none d-sm-block fondo2">col-3</div>
+            <div class="col-6 fondo3">col-6</div>
+            <div class="col-3 fondo4">col-3</div>
+          </div>
+          
+          <!-- Columns are always 50% wide, on mobile and desktop -->
+          <div class="row">
+            <div class="col-sm-12 fondo1">col-12</div>
+          </div>        
+       </div>   
+    <!-- JavaScript Opcional -->
+    <!-- jQuery primero, luego Popper.js y despues Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+    <script src="../js/bootstrap.min.js" ></script>
+  </body>
+</html>

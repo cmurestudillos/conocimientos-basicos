@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>Funcion clone() - appendTo()</title>
+
+<style>
+div {
+  color: white;
+  padding: 10px;
+  margin: 20px;
+}
+.file {
+  background: limegreen;
+}
+.folder {
+  background: gold;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( ".file" ).click( function() {
+      $( this ).clone().appendTo( ".folder" );
+    });
+  });
+</script>
+
+<div class="file">
+  Fichero
+</div>
+
+<div class="folder">
+  Carpeta
+</div>

@@ -1,0 +1,14 @@
+{
+  "name": "ejemplo-electron-vue",
+  "version": "1.0.0",
+  "description": "Ejemplo de como desarrollar Vue.js con la interfaz grafica Electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Carlos Mur",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^15.5.5"
+  }
+}

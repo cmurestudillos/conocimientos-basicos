@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>Fade In Content</title>
+
+<style>
+  #showMe {
+    background: gold;
+    padding: 20px;
+    display: none; 
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $( "button" ).click(function() {
+    $( "#showMe" ).fadeIn();
+  });
+});
+</script>
+<button>Ver password</button>
+<p>El password es...</p>
+<p id="showMe">Noooooo, nooooooo, no lo sabras</p>

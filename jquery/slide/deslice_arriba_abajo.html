@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Deslice arriba/abajo</title>
+
+<style>
+  #slideMe {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  
+  $("button").click(function() {
+    $( "#slideMe" ).slideToggle();
+  });
+});
+</script>
+<button>Pulsa</button>
+<p id="slideMe">Hola Mundo!!!</p>

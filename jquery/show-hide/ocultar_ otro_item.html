@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Ocultar otro item</title>
+
+<style>
+  p {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  
+  $("button").click(function() {
+  
+    $( "#hideMe" ).hide();
+    
+  });
+  
+});
+</script>
+<button>Ocultar elemento</button>
+<p id="hideMe">Click para ocultar</p>
+<p>Aun me sigo visible.</p>

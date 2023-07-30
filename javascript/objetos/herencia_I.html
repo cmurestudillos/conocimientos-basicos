@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Ejercicio - Nº 10</title>
+        <!-- Import - Funciones Javascript -->        
+        <script src="js/funciones.js"></script>          
+    </head>
+    <body>
+        <div id="div1">
+            <!-- Funciones internas de body Javascript -->
+            <script language="javascript">
+             //Programacion orientada a Objetos - HERENCIA
+             AnimalDomestico();
+                
+             var miGato = new AnimalDomestico();
+             miGato.configurarAnimal("gato");
+             miGato.configurarNombre("Dante");
+                     
+             //A partir de aqui creamos un nuevo AnimalDomestico con herencia
+             Perro.prototype = new AnimalDomestico;
+             function Perro(){
+                   this.raza = "";
+                   this.configurarRaza = function(nuevaRaza){
+                       this.raza = nuevaRaza;
+                    }
+                    this.mostrarInfo = function(){
+                        alert(this.nombre + " es un " + this.raza);
+                    }
+              }
+
+              var miPerro = new Perro();
+              miPerro.configurarNombre("Enzo");
+              miPerro.configurarRaza("Tekken");                
+            </script> 
+        </div>
+        <input type="button" onclick="miGato.mostrarInfo();" value="Mostrar Info Gato" />
+        <input type="button" onclick="miPerro.mostrarInfo();" value="Mostrar Info Perro" />
+    </body>
+</html>

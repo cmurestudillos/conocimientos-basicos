@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>Valores relativos</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "#animation" ).animate({
+        fontSize: "+=1.5em",
+        letterSpacing: "+=0.3em"
+      }, 1000 );   
+    });
+  });
+</script>
+
+<button>Ejecutar Animación</button>
+
+<div id="animation">Hola Mundo</div>
+
+<p>Cuando usamos valores relativos (por ejemplo, <code> + = 1.5em </code>), el efecto de animación ocurrirá cada vez que lo ejecutemos. Esto no sucedería si utilizáramos valores absolutos (por ejemplo, <code> 1.5em </code>), ya que el valor absoluto ya se habría logrado con la primera iteración.</p>

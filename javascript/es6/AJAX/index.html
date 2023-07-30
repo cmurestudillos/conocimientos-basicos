@@ -1,0 +1,24 @@
+<!-- Pagina HTML -->
+<html>
+<script>
+// Código JS
+function reqHandler () {
+  if (this.readyState === 4 && this.status === 200) {
+  var respuesta = JSON.parse(this.responseText);
+  var respuestaHTML = document.querySelector('#respuesta');
+  var tpl = '';
+  respuesta.forEach(function (elem) {
+  tpl += '<a href="' + elem.url + '">'
+  + '<img src="' + elem.thumbnailUrl + '"/>',
+  + '</a>',
+  + '<br/>',
+  + '<span>' + elem.title + '</span>';
+  });
+  respuestaHTML.innerHTML = tpl;
+  }
+}
+</script>
+  <body>
+    <div id="respuesta"></div>
+  </body>
+</html>

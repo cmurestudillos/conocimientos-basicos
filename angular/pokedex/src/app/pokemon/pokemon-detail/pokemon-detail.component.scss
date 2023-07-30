@@ -1,0 +1,91 @@
+@import '../../../styles/_config';
+
+h1 {
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+.sprite {
+  transform: scale(1.6);
+  margin: 20px auto;
+
+  @media (min-width: 420px) {
+    transform: scale(2);
+    margin: 30px auto;
+  }
+}
+
+.type {
+  display: inline-block;
+  padding: 4px 10px;
+  color: $color-white;
+  margin-right: 4px;
+}
+
+.fuego {
+  background-color: #F45545;
+}
+
+.agua {
+  background-color: #558BCF;
+}
+
+.planta {
+  background-color: #589F43;
+}
+
+.veneno {
+  background-color: #6c4294;
+}
+
+.volador {
+  background-color: #E3C066;
+}
+
+.normal {
+  background-color: #bd8d41;
+}
+
+.bicho {
+  background-color: #acbe16;
+}
+
+.electrico {
+  background-color: #F3BE1F;
+}
+
+.tierra {
+  background-color: #796444;
+}
+
+.dragon {
+  background-color: #A485C2;
+}
+
+.psiquico {
+  background-color: #EE86A5;
+}
+
+.hada {
+  background-color: #BF6481;
+}
+
+.hielo {
+  background-color: #64AFF5;
+}
+
+.roca {
+  background-color: #3B3426;
+}
+
+.luchador {
+  background-color: #915656;
+}
+
+.acero {
+  background-color: #949494;
+}
+
+.fantasma {
+  background-color: #75577D;
+}

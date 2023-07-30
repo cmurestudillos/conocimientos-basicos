@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Obtener tamaño de la ventana</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      var msg = "";
+      msg = msg + "<p>Ancho: " + $( window ).width();
+      msg = msg + "<p>Alto: " + $( window ).height();
+      $( "#msg" ).html( msg );
+    });
+  });
+</script>
+
+<button>Obtener tamaño</button>
+<div id="msg"></div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>Toggle</title>
+
+<style>
+  p {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "p" ).animate({
+        width: "toggle"
+      }, 1000 );   
+    });
+  });
+</script>
+<button>Ejecutar Animación</button>

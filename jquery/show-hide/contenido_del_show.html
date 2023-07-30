@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Contenido del show</title>
+
+<style>
+  #showMe {
+    background: gold;
+    padding: 20px;
+    display: none; 
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  
+  $("button").click(function() {
+  
+    $( "#showMe" ).show();
+    
+  });
+  
+});
+</script>
+<button>Ver contraseña</button>
+<p>La contraseña es...</p>
+<p id="showMe">No te voy a decir mi contraseña.</p>

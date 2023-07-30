@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- meta tags requeridos -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <title>Grid's</title>
+
+    <style>
+    body{text-align: center;}
+    .fondo1{background: lightblue;}
+    .fondo2{background: greenyellow;}
+    .fondo3{background: lightcoral;}
+    .fondo4{background: lightcyan;}
+    .tcenter{text-align: center;}
+    [class|=col]{border:1px solid black;}
+    </style>
+
+  </head>
+  <body>
+     <div class="container">
+      <div class="row">
+        <div class="col-sm fondo1">
+            <p> Columna 1</p>
+        </div>
+        <div class="col-sm fondo2">
+            <p>Columna 2</p>
+        </div>
+        <div class="col-sm fondo3">
+          <p>Columna 3</p>
+        </div>
+      </div>
+    </div>
+    <br>  
+    <div class="container">
+      <div class="row">
+        <div class="col fondo1">
+          <p>1 de 2</p>
+        </div>
+        <div class="col fondo2">
+          <p>2 de 2</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col fondo3">
+          <p>1 de 3</p>
+        </div>
+        <div class="col fondo1">
+          <p>2 de 3</p>
+        </div>
+        <div class="col fondo2">
+          <p>3 de 3</p>
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col fondo1"><p>Columna 1</p></div>
+          <div class="col fondo2"><p>Columna 2</p></div>
+          <div class="w-100"></div>
+          <div class="col fondo3"><p>Columna 3</p></div>
+          <div class="col fondo4"><p>Columna 4</p></div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col col-lg-2 fondo1">
+              1 of 3
+            </div>
+            <div class="col-md-auto fondo3">
+              Variable width content
+            </div>
+            <div class="col col-lg-2 fondo2">
+              3 of 3
+            </div>
+          </div>
+          <div class="row">
+            <div class="col fondo1">
+              1 of 3
+            </div>
+            <div class="col-md-auto fondo3">
+              Variable width content
+            </div>
+            <div class="col col-lg-2 fondo2">
+              3 of 3
+            </div>
+          </div>
+        </div>  
+        <br>
+        <div class="container">
+          <div class="row">
+              <div class="col fondo3">col</div>
+              <div class="col fondo3">col</div>
+              <div class="col fondo3">col</div>
+              <div class="col fondo3">col</div>
+            </div>
+            <div class="row">
+              <div class="col-8 fondo1">col-8</div>
+              <div class="col-4 fondo2">col-4</div>
+          </div> 
+        </div>            
+        <br>
+        <div class="container">
+          <div class="row">
+              <div class="col-12 col-md-8 fondo1">.col-12 .col-md-8</div>
+              <div class="col-6 col-md-4 fondo2">.col-6 .col-md-4</div>
+          </div>
+
+          <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+          <div class="row">
+            <div class="col-6 col-md-4 fondo1">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4 fondo2">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4 fondo3">.col-6 .col-md-4</div>
+          </div>
+          
+          <!-- Columns are always 50% wide, on mobile and desktop -->
+          <div class="row">
+            <div class="col-6 fondo4">.col-6</div>
+            <div class="col-6 fondo3">.col-6</div>
+          </div>        
+       </div>   
+    <!-- JavaScript Opcional -->
+    <!-- jQuery primero, luego Popper.js y despues Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+    <script src="../js/bootstrap.min.js" ></script>
+  </body>
+</html>

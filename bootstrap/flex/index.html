@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- meta tags requeridos -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <title>Flex</title>
+
+    <style>
+      .colorfila{background:grey; height: 500px;}
+      .fondo1{background: silver; color: white; font-weight: bold; font-size: 24px; border:1px solid black;}
+      .fondo2{background:grey; border:1px solid black;}
+      .fondo3{background: green;}
+      .fondo4{background:lightseagreen;}
+    </style>
+
+  </head>
+  <body>
+     <div class="container">
+      <div class="row colorfila align-items-center">
+          <div class="col-1 fondo1 align-self-start">1</div>
+          <div class="col fondo1">2
+              <div class="row fondo3">
+                  <div class="col fondo2">1</div>
+                  <div class="col fondo2">2</div>
+                  <div class="col fondo2">3</div> 
+              </div>
+          </div>
+          <div class="col-1 fondo1">3</div>
+          <div class="col-1 fondo1 offset-md-2">4</div>
+          <div class="col-1 fondo1">5</div>
+          <div class="col-1 fondo1 align-self-end">6</div>
+      </div>
+    </div>
+
+    <!-- JavaScript Opcional -->
+    <!-- jQuery primero, luego Popper.js y despues Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+    <script src="../js/bootstrap.min.js" ></script>
+  </body>
+</html>

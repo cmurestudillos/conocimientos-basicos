@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>AJAX - load() callback</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+      $( "#data" ).load( "https://www.quackit.com/jquery/examples/latestData.html", function() {
+        alert( "Aqui tienes los datos" );
+      });      
+    });
+  });
+</script>
+
+<button>Carga datos</button>
+
+<div id="data"></div>
+<div id="status"></div>

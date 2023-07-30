@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Ejercicio - Nº 08 - E</title>
+            <!-- Funciones internas de body Javascript -->
+            <script language="javascript">
+                    //Programacion orientada a Objetos - Ejercicio 13-d
+                    function miCoche(color, puertas, marca){
+                        //Añadimos en la propiedad el argumento que viene
+                        this.color  = color;
+                        this.puertas= puertas;
+                        this.marca  = marca;
+                        this.info   = 'Este coche marca ' + this.marca + ' es de color ' + this.color +
+                          ' y tiene ' + this.puertas + ' puertas';
+                          this.mostrarInfo = function(){
+                              alert(this.info);
+                          }
+                    }
+                      
+                    var coche1 = new miCoche('Blanco', 3 , 'BMW');
+                    var coche2 = new miCoche('Negro', 5, 'Audi');
+            </script>                    
+    </head>
+    <body>
+        <input type="button" onclick="coche1.mostrarInfo();" value="Info BWM" />
+        <input type="button" onclick="coche2.mostrarInfo();" value="Info Audi" />
+    </body>
+</html>
